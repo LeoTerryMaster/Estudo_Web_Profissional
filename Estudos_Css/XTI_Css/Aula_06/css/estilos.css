@@ -1,0 +1,13 @@
+div h1:first-child{
+color: blue;
+}
+
+
+
+a:link{
+    color: red;
+}
+
+a:visited{
+    color: rgb(0, 255, 13);
+}
