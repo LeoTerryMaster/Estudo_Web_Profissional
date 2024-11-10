@@ -2,12 +2,28 @@ div h1:first-child{
 color: blue;
 }
 
-
-
 a:link{
     color: red;
 }
 
 a:visited{
     color: rgb(0, 255, 13);
+}
+
+a:lang(en){
+    color: gray;
+}
+
+
+p::first-line{
+    color: blue;
+}
+
+p::first-letter{
+    font-size: 40px;
+    color: red;
+}
+
+p::after{
+    content: "Final";
 }
