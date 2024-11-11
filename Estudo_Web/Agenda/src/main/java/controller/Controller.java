@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,7 +16,10 @@ import model.JavaBeans;
 @WebServlet(urlPatterns = {
 	"/Controller",
 	"/main",
-	"/insert"})
+	"/insert",
+	"/select",
+	"/update",
+	"/delete"})
 public class Controller extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -32,11 +35,17 @@ public class Controller extends HttpServlet{
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
 
 		String action = request.getServletPath();
-
+		System.out.println(action);
 		if(action.equals("/main")){
 			contatos(request, response);
 		}else if(action.equals("/insert")){
 			novoContatos(request, response);
+		}else if(action.equals("/select")){
+			listarContatos(request, response);
+		}else if(action.equals("/update")){
+			editarContatos(request, response);
+		}else if(action.equals("/delete")){
+			deletarContatos(request, response);
 		}else{
 			response.sendRedirect("index.html");
 		}
@@ -47,7 +56,7 @@ public class Controller extends HttpServlet{
 
 	protected void contatos(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
 
-		List<JavaBeans> lista = dao.listarContatos();
+		ArrayList<JavaBeans> lista = dao.listarContatos();
 
 		// encaminhar a lista ao documento
 		request.setAttribute("contatos", lista);
@@ -69,6 +78,63 @@ public class Controller extends HttpServlet{
 		// redirecionar 
 		response.sendRedirect("main");
 
+	}
+
+
+	// Editar contatos
+	protected void listarContatos(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
+
+		// receber id do contatos
+		String idcon = request.getParameter("idcon");
+		contatos.setIdcon(idcon);
+
+		// executar método selecionr contatos
+		dao.selecionarContatos(contatos);
+
+		// setar os atribustos do formularios
+		request.setAttribute("idcon", contatos.getIdcon());
+		request.setAttribute("nome", contatos.getNome());
+		request.setAttribute("fone", contatos.getFone());
+		request.setAttribute("email", contatos.getEmail());
+
+		// Encamnhar ao documento ecitar 
+		RequestDispatcher rd = request.getRequestDispatcher("editar.jsp");
+		rd.forward(request, response);
+
+
+	}
+
+
+	protected void editarContatos(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
+		// setar as variáveis JavaBeans
+
+		contatos.setIdcon(request.getParameter("idcon"));
+		contatos.setNome(request.getParameter("nome"));
+		contatos.setFone(request.getParameter("fone"));
+		contatos.setEmail(request.getParameter("email"));
+
+		// executar alteração do contato
+		dao.alterarContatos(contatos);
+
+		// redirecionar para o documento agenda.jsp
+		response.sendRedirect("main");
+
+	}
+
+
+	protected void deletarContatos(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
+
+		//recebimento do id do contato a ser excluido
+		String idcon = request.getParameter("idcon");
+
+		// setart a variável idcon
+		contatos.setIdcon(idcon);
+
+		//deletar na tabela
+		dao.deletarContatos(contatos);
+
+		// redirecionar para o documento agenda.jsp
+		response.sendRedirect("main");
 	}
 
 }
