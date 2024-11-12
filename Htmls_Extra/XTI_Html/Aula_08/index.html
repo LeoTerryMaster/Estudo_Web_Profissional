@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de html</title>
+</head>
+<body>
+    <h1>Aula de formulários Acessibilidade</h1>
+    
+    
+        <form action="Aula_07/index.html" method="post">
+            <fieldset> 
+                <legend>Formulário</legend>
+
+
+            <fieldset>
+                <legend>Informações pessoais</legend>
+
+            <label for="nome">Nome:</label> 
+                <input type="text" id="nome" /> <br /><br />
+
+                <label for="senha">Senha:
+                <input type="password" id="senha" /> <br /><br />
+                </label>
+
+            Sexo: <br />
+            <input type="radio" name="sexo" value="M" />Masculono<br />
+            <input type="radio" name="sexo" value="F" />Feminino<br />
+         </fieldset>
+
+
+
+            <br /><br />
+            <fieldset>
+                <legend>Informações Profissionais</legend>
+            Conhecimentos:<br />
+            <input type="checkbox" name="conhecimentos" value="java" />Java<br />
+            <input type="checkbox" name="conhecimentos" value="Css" />Css<br />
+            <input type="checkbox" name="conhecimentos" value="html" />Html<br />
+            <input type="checkbox" name="conhecimentos" value="jsp" />Jsp<br />
+            <input type="checkbox" name="conhecimentos" value="javascript" />javascript<br />
+            <input type="checkbox" name="conhecimentos" value="dados" />Banco de Dados<br /> 
+            <input type="checkbox" name="conhecimentos" value="php" />PHP<br />
+
+            <br><br>
+            Currículo:<br>
+            <input type="file" id="curriculo" /><br>Enviar Curriculos <br><br>
+            <input type="reset" value="Limpar" /> <br><br>
+            <input type="submit" value="Enviar" /> <br><br>
+            <input type="button" value="Validar " /> <br><br>
+          </select>
+        </fieldset>
+        <br />
+        <br />
+            País:<br />
+            
+            <select id="pais">
+                <option value="BR">Brasil</option>
+                <option>China</option>
+                <option>EUA</option>
+                <option>JAPÃO</option>
+                <option>Argentina</option>
+                <option>Canadá</option>
+            
+            
+
+            <br>
+            <br><br>
+            Editores ou Navegadores:<br>
+            <select>
+                <optgroup label="Editores">
+                    <option>NotPad++</option>
+                    <option>Vscode</option>
+                    <option>Eclipse</option>
+                    <option>Intellijj</option>
+                </optgroup>
+
+                <optgroup label="Navegadores">
+                    <option>Firefox</option>
+                    <option>Chrome</option>
+                    <option>Opera</option>
+                    <option>Operax</option>
+                </optgroup>
+            </select>
+
+
+
+
+            Resumo:<br>
+            <textarea cols="80" rows="10">Escreva seu resumo:
+
+
+            </textarea>
+
+
+
+
+
+
+
+
+        </fieldset>
+
+        </form>
+
+
+
+</body>
+</html>
