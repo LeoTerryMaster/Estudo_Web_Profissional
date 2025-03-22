@@ -1,14 +1,14 @@
-function calcularIMC(){
-  var forumlario =  document.getElementById("formulario");
+function calcularIMC() {
+  var forumlario = document.getElementById("formulario");
 
-        var kilos= +forumlario.kilos.value;
-        var metros= +forumlario.metros.value;
-        var centientros= +forumlario.centientros.value;
+  var kilos = forumlario.kilos.value;
+  var metros = forumlario.metros.value;
+  var centientros = forumlario.centientros.value;
 
-        var altura= (metros* 100 + centientros)/100;
+  var altura = (metros * 100 + centientros) / 100;
 
-        var imc = kilos / (altura * altura)
+  var imc = kilos / (altura * altura)
 
-        forumlario.imc.value = imc.toFixed(2);
+  forumlario.imc.value = imc.toFixed(2);
 
 }
