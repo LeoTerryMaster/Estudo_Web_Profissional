@@ -1,7 +1,7 @@
 
 
 
-var idade = 60;
+var idade = 2;
 
 if(idade>= 1 && idade<=2){
 alert("Temos um bebe de colo")

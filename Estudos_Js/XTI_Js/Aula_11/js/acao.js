@@ -7,5 +7,5 @@ var Carro = {
 };
 
 for( var i in Carro){
-    alert(i + " = "+  Carro[i]);
+    alert("acessa fora "+i + "  <==>  "+  " acessa dentros "+Carro[i]);
 }

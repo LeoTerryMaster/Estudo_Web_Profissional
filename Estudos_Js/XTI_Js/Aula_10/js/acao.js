@@ -7,8 +7,6 @@ var numeros = new Array("um", "dois", "Três");
 //for(var i in numeros){
   //  alert(numeros[i]);
 //}
-
-
 for( i in numeros){
     alert(numeros[i]);
 }

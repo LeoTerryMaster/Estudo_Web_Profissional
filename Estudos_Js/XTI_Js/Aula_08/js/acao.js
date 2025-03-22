@@ -1,6 +1,6 @@
 
 
-var sexo = "F";
+var sexo = "M";
 
 switch(sexo){
     case "M":
@@ -11,4 +11,5 @@ switch(sexo){
         break;
     default:
         alert("Indefinido");
+        break;
 }

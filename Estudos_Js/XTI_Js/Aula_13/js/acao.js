@@ -7,6 +7,6 @@ var texto = "";
 do{
     texto += i + " ";
     i++;
-}while(i<=10)
+}while(i<=1)
 
 alert(texto);
